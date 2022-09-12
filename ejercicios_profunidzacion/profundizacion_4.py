@@ -10,6 +10,9 @@
 # de mucho más tiempo para abordar estos temas por su cuenta.
 # Requiere mayor tiempo de dedicación e investigación autodidacta.
 
+from operator import truediv
+
+
 temp_dataloger = [12.8, 18.6, 14.5, 20.8, 12.1, 21.2, 13.5, 18.6,
                   14.7, 19.6, 11.2, 18.4]
 
@@ -83,3 +86,48 @@ https://es.weatherspark.com/y/28981/Clima-promedio-en-Buenos-Aires-Argentina-dur
 # ¿En qué época del año nos encontramos?
 # Imprima el resultado en pantalla
 # Debe utilizar temperatura_max y temperatura_min para definirlo
+
+
+for numero in temp_dataloger:
+    temperatura_sumatoria += numero
+    temperatura_len += 1
+    if (temperatura_max is None) or (numero > temperatura_max):
+        temperatura_max = numero
+    
+    if (temperatura_min is None) or (numero < temperatura_min):
+        temperatura_min = numero
+    
+print('El valor maximo es: ',temperatura_max)
+print('El valor minimo es: ',temperatura_min)
+
+temperatura_promedio = temperatura_sumatoria/temperatura_len
+
+maximo_entero = int(temperatura_max)
+minimo_entero = int(temperatura_min)
+
+print('El valor promedio es: ',temperatura_promedio)
+
+if minimo_entero == 19 and maximo_entero == 28:
+    print('verano')
+elif minimo_entero == 11 and maximo_entero == 21:
+    print('otoño')
+elif minimo_entero == 8 and maximo_entero == 14:
+    print('invierno')
+elif minimo_entero == 10 and maximo_entero == 24:
+    print('primavera')
+
+
+if temperatura_max == max(temp_dataloger):
+    print('Si son iguales temp max')
+else:
+    print('Son diferentes')
+
+if temperatura_min == min(temp_dataloger):
+    print('Si son iguales temp min')
+else:
+    print('Son diferentes')
+
+if temperatura_sumatoria == sum(temp_dataloger):
+    print('Si son iguales temp suma')
+else:
+    print('Son diferentes')
